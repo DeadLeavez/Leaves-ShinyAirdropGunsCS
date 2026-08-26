@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>ShinyAirdropGuns</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+    <Version>2.2.0</Version>
+    <!-- Build straight into a droppable user/mods/<ModName> layout at the workspace root -->
+    <OutputPath>..\dist\SPT\user\mods\$(MSBuildProjectName)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SPTarkov.Common" Version="4.0.13" />
+    <PackageReference Include="SPTarkov.DI" Version="4.0.13" />
+    <PackageReference Include="SPTarkov.Server.Core" Version="4.0.13" />
+    <!-- LeavesUtils ships as its own separately-installed mod - compile against it, but don't copy a dll -->
+    <ProjectReference Include="../Leaves-LeavesUtil/Leaves-LeavesUtil.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+    <!-- SOFT dependency, compile-time types only: this mod must keep working when Questrandomizer
+         isn't installed. The only code touching its types lives in an isolated NoInlining method
+         guarded by try/catch (see RegisterQuestrandomizerEquivalents in ShinyAirdropGuns.cs), so
+         the assembly-load failure on a Questrandomizer-less install gets caught and skipped. -->
+    <ProjectReference Include="../Leaves-Questrandomizer/Leaves-Questrandomizer.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- config/ids.jsonc is runtime-owned (the live server writes newly-generated shiny weapon
+         ids into it via LeavesUtils.saveJsonFile) - excluded so a rebuild never re-copies the
+         workspace's checked-in placeholder over the live server's real, populated file. Found via
+         the identical bug in Leaves-Questrandomizer's assets/generated/ids.jsonc - see that
+         .csproj for the full explanation. ShinyAirdropGuns.cs already handles a missing file
+         gracefully via getOrCreateId, so nothing needs to ship here for a fresh install either. -->
+    <None Include="config\**" Exclude="config\ids.jsonc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="CopyToSecondaryLocation" AfterTargets="Build">
+    <ItemGroup>
+      <OutputFiles Include="$(OutputPath)**\*.*" />
+    </ItemGroup>
+
+    <!-- 1. Purge the ENTIRE previous _dist (old-version zips included) so a version bump doesn't
+         leave stale zips behind and removed/renamed files don't stick round -->
+    <RemoveDir Directories="$(MSBuildProjectDirectory)\_dist"
+      Condition="Exists('$(MSBuildProjectDirectory)\_dist')" />
+
+    <!-- 2. Copy fresh build output into the mod folder structure -->
+    <Copy SourceFiles="@(OutputFiles)"
+      DestinationFolder="$(MSBuildProjectDirectory)\_dist\SPT\user\mods\$(MSBuildProjectName)\%(RecursiveDir)"
+      SkipUnchangedFiles="true" />
+
+    <!-- 3. Zip the CONTENTS of _dist -->
+    <ZipDirectory SourceDirectory="$(MSBuildProjectDirectory)\_dist"
+      DestinationFile="$(MSBuildProjectDirectory)\$(MSBuildProjectName)_$(Version).zip"
+      Overwrite="true" />
+
+    <!-- 4. Purge the loose folder, leaving only the zip -->
+    <RemoveDir Directories="$(MSBuildProjectDirectory)\_dist\SPT" />
+
+    <!-- 5. Move the finished zip into _dist -->
+    <Move SourceFiles="$(MSBuildProjectDirectory)\$(MSBuildProjectName)_$(Version).zip"
+      DestinationFiles="$(MSBuildProjectDirectory)\_dist\$(MSBuildProjectName)_$(Version).zip" />
+  </Target>
+</Project>

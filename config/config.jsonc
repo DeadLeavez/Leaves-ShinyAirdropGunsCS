@@ -1,0 +1,272 @@
+{
+    "blacklistFromAirdrop": true, //Will blacklist the recievers from randomly spawning in airdrops.
+    "addToQuests": true, //Adds the newly generated weapons to quests that require the original weapon.
+    "addToMasteries": true, //Adds the newly generated weapons to the mastery groups the original weapon belong to.
+    "replaceAllAirdrops": true, //Will make the airdrop weapon crates always contain a shiny weapon instead of any regular possibility.
+    "debug": false, //Displays a LOT of debug info, only enable if asked to. Or if you're just curious about stuff. :P
+    "allowSpecialSlots": true, //Enable/Disable weapon groups to be allowed in special slots. (Still needs enabling in the weapon group too)
+    //(might be needed to disabled for compatiblity with mods that adjust pockets)
+    "addRevolversIntoPistolCase": true, //adds pistols/revolvers into the pistol case.
+    "blacklistFromFence": true,
+
+    "weaponGroups": //Each weapon group HAVE to have a unique name. Changing the weapon group name during a playthrough will
+    //generate new IDs for weapons and AT BEST will remove them from your inventory, and at WORST corrupt your save.
+    {
+        "ARs":
+        {
+            "weaponsToMakeShiny":
+            [
+                "5447a9cd4bdc2dbd208b4567", //M4A1
+                "5dcbd56fdbd3d91b3e5468d5", //MDR 762
+                "6499849fc93611967b034949", //AK-12
+                "606587252535c57a13424cfd", //MUTANT 47
+                "5a0ec13bfcdbcb00165aa685", //AKMN
+                "57c44b372459772d2b39b8ce", //AS VAL
+                "5bb2475ed4351e00853264e3", //HK-416
+                "664a5b945636ce820472f225", //WTT HK-417
+                "65290f395ae2ae97b80fdf2d", //SIG MCX SPEAR
+                "678fe4a4906c7bd23722c71f", //WTT AN-94 (base, not "Kirov's Custom"). Keeps its own fire modes - this group sets no setFireMode.
+                "623063e994fc3f7b302a9696" //G36
+            ],
+            "fireRateMultiplier": 1.08,
+            "ergoFlatIncrease": 15,
+            "horizontalRecoilMultiplier": 0.88,
+            "verticalRecoilMultiplier": 0.94,
+            "heatFactorMultiplier": 0.9,
+            "heatFactorByShotMultiplier": 0.9,
+            "durabilityBurnMultiplier": 0.85,
+
+            "priceMulti": 5,
+            "description": "pew pew",
+
+            "background": "violet",
+            "prefix": "˙·٠•●♥ ",
+            "suffix": " ♥●•٠·˙",
+            "shortNamePrefix": "♥ ",
+            "shortNameSuffix": " ♥"
+        },
+        "SMGs":
+        {
+            "weaponsToMakeShiny":
+            [
+                "5fb64bc92b1b027b1f50bcf2", //VECTOR 45
+                "5fc3f2d5900b1d5091531e57", //VECTOR 9
+                "5cc82d76e24e8d00134b4b83", //P90
+                "668e71a8dadf42204c032ce1", //IWI UZI PRO SMG 9x19 submachine gun",
+                "5bd70322209c4d00d7167b8f" //MP7A2
+            ],
+            "fireRateMultiplier": 1.1,
+            "ergoMultiplier": 1.1,
+            "horizontalRecoilMultiplier": 0.93,
+            "verticalRecoilMultiplier": 0.93,
+            "heatFactorMultiplier": 0.9,
+            "heatFactorByShotMultiplier": 0.9,
+
+            "priceMulti": 5,
+            "description": "brrrt",
+
+            "background": "violet",
+            "prefix": "˙·٠•●♥ ",
+            "suffix": " ♥●•٠·˙",
+            "shortNamePrefix": "♥ ",
+            "shortNameSuffix": " ♥"
+        },
+        "SemiShotties":
+        {
+            "weaponsToMakeShiny":
+            [
+                "576165642459773c7a400233", //SAIGA 12
+                "606dae0ab0e443224b421bb7" //MP-155
+            ],
+            "fireRateFlatIncrease": 600,
+            "ergoFlatIncrease": 10,
+            "heatFactorMultiplier": 0.6,
+            "heatFactorByShotMultiplier": 0.6,
+            "durabilityBurnMultiplier": 0.7,
+            "setFireMode": [ "single", "fullauto" ],
+            "weaponBoxWeight":0.8,
+
+            "priceMulti": 5,
+
+            "background": "violet",
+            "prefix": "˙·٠•●♥ ",
+            "suffix": " ♥●•٠·˙",
+            "shortNamePrefix": "♥ ",
+            "shortNameSuffix": " ♥"
+	
+        },
+        "Semis":
+        {
+            "weaponsToMakeShiny":
+            [
+                "60339954d62c9b14ed777c06", //STM 9
+                "59e6687d86f77411d949b251", //MOLOT VPO-209 .366
+                "5aafa857e5b5b00018480968", //M1A
+                "66e88596febdcf9daade16a8", //WTT Zastava
+                "6657bc8faeddd6b0a9b40224"  //WTT SVD (non-camo, and NOT the vanilla SVDS). NOTE: this group's setFireMode makes it FULL-AUTO, same as the M1A above.
+            ],
+            "fireRateFlatIncrease": 100,
+            "ergoFlatIncrease": 15,
+            "heatFactorMultiplier": 0.8,
+            "heatFactorByShotMultiplier": 0.8,
+            "durabilityBurnMultiplier": 0.85,
+            "setFireMode": [ "single", "fullauto" ],
+
+            "description": "Raaaaaaaaaaaaaaaaaailgun",
+
+            "background": "violet",
+            "prefix": "˙·٠•●♥ ",
+            "suffix": " ♥●•٠·˙",
+            "shortNamePrefix": "♥ ",
+            "shortNameSuffix": " ♥"
+        },
+        "BoltAction":
+        {
+            "weaponsToMakeShiny":
+            [
+                "5bfea6e90db834001b7347f3", //M700
+                "5df24cf80dee1b22f862e9bc", //ORSIS T-5000
+                "67c6de3ce39861860909e8e5"  //WTT Marlin MXLR .308 (lever-action - grouped here as the manually-operated group; this group sets no setFireMode so it stays single-shot)
+            ],
+            "ergoFlatIncrease": 30,
+            "weaponBoxWeight":0.5,
+
+            "priceMulti": 6,
+            "description": "Snip",
+
+            "background": "violet",
+            "prefix": "˙·٠•●♥ ",
+            "suffix": " ♥●•٠·˙",
+            "shortNamePrefix": "♥ ",
+            "shortNameSuffix": " ♥"
+        },
+        "Pistols":
+        {
+            "weaponsToMakeShiny":
+            [
+                "61a4c8884f95bc3b2c5dc96f", //RHINO .357
+                "633ec7c2a6918cb895019c6c", //RSH 50
+                "6193a720f8ee7e52e42109ed", //USP
+                "669fa39b48fc9f8db6035a0c", //Magnum Research Desert Eagle L6 .50 AE pistol",
+                "669fa409933e898cce0c2166", //Magnum Research Desert Eagle 357
+                "5b1fa9b25acfc40018633c01" //Glock 18C
+            ],
+            "ergoFlatIncrease": 25,
+            "accuracyMultiplier": 0.8,
+            "doubleActionAccuracyPenaltyMultiplier": 0.5,
+            "velocityMultiplier": 1.5,
+            "addToSpecialSlots": true,
+            "heatFactorMultiplier": 0.9,
+            "heatFactorByShotMultiplier": 0.9,
+            "durabilityBurnMultiplier": 0.85,
+
+            "background": "violet",
+            "prefix": "˙·٠•●♥ ",
+            "suffix": " ♥●•٠·˙",
+            "shortNamePrefix": "♥ ",
+            "shortNameSuffix": " ♥"
+        },
+        "LMGs":
+        {
+            "weaponsToMakeShiny":
+            [
+                "65268d8ecb944ff1e90ea385", //Degtyarev RPDN 7.62x39 machine gun",
+                "661ceb1b9311543c7104149b", //U.S. Ordnance M60E6 7.62x51 light machine gun",
+                "66e718dc498d978477e0ba75"  //WTT M249 SAW 5.56
+            ],
+            "fireRateFlatIncrease": 50,
+            "ergoFlatIncrease": 20,
+            "heatFactorMultiplier": 0.75,
+            "heatFactorByShotMultiplier": 0.75,
+            "durabilityBurnMultiplier": 0.6,
+            "setFireMode": [ "single", "fullauto" ],
+            "horizontalRecoilMultiplier": 0.88,
+            "verticalRecoilMultiplier": 0.94,
+            "weaponBoxWeight":1.2,	
+
+            "priceMulti": 4.5,
+            "description": "dakka dakka dakka",
+
+            "background": "violet",
+            "prefix": "˙·٠•●♥ ",
+            "suffix": " ♥●•٠·˙",
+            "shortNamePrefix": "♥ ",
+            "shortNameSuffix": " ♥"
+        },
+        "WTT":
+        {
+            "weaponsToMakeShiny":
+            [
+                "6962f22fddc6698c6309b620", //FN F2000 5.56x45 assault rifle
+                "6871284e9a353bb50606f3ed", //AS VAL MOD.4 9x39 special assault rifle
+                "67c6de3ce39861860909e8e5", //TODO(dup-shiny) REMOVE THIS LINE when not mid-run: duplicate. The Marlin MXLR is already in the BoltAction group above (its intended lever-action home) - this WTT-group copy is the second clone that shows up as "2 shiny MXLRs". Deleting it orphans shiny id 6a6e15ea9e090d51e482de40 in any save that already holds it (see ShinyAirdropGuns HANDOFF s5), so defer until nobody has it mid-run. Keep BoltAction, delete this entry.
+                "689166b6c2d6fa42e7044756", //Kalashnikov AK-308 7.62x51 assault rifle
+                "68c16b9ab6b75a8a480520a6", //Custom Guns NL545 (DI) 5.45x39 assault rifle
+                "6671ebcdd32bd95eb398e920", //WTT Bofors Ak5C (base, not the "custom" variant)
+                "66a47e98c486ec9d1af3a4da"  //WTT IWI Tavor X95 5.56 (base, not FDE/OD/9x19)
+            ],
+            "fireRateMultiplier": 1.00,
+            "ergoFlatIncrease": 15,
+            "horizontalRecoilMultiplier": 1.0,
+            "verticalRecoilMultiplier": 1.0,
+            "heatFactorMultiplier": 0.9,
+            "heatFactorByShotMultiplier": 0.9,
+            "durabilityBurnMultiplier": 0.75,
+
+            "priceMulti": 5,
+            "description": "pew pew",
+
+            "background": "violet",
+            "prefix": "˙·٠•●♥ ",
+            "suffix": " ♥●•٠·˙",
+            "shortNamePrefix": "♥ ",
+            "shortNameSuffix": " ♥"
+        }
+    }
+}
+
+/*Mods available for modification within a group block. With example data.
+	Any multiplicative adjustments will happen AFTER any flat adjustments.
+		"fireRateMultiplier": 1.05, 				//Multiplicative adjustment of fire rate. 
+		"fireRateFlatIncrease": 100, 				//Flat adjustment of fire rate.
+        //Keep in mind for firerate changes, that the sound of firing full auto wont change. So massive changes might sound pretty bad.
+		"ergoFlatIncrease": 5, 						//Multiplicative adjustment of ergonomics
+		"ergoMultiplier": 1.05, 					/Flat adjustment of ergonomics
+		"horizontalRecoilFlatReduction": 5, 		//Flat adjustment of horizontal recoil
+		"horizontalRecoilMultiplier": 0.95, 		//Multiplicative adjustment of horizontal recoil
+		"verticalRecoilFlatReduction": 5, 			//Flat adjustment of vertical recoil
+		"verticalRecoilMultiplier": 0.95, 			//Multiplicative adjustment of vertical recoil
+		"heatFactorMultiplier": 0.9,				//Multiplicative heat factor
+		"heatFactorByShotMultiplier": 0.9,			//Multiplicative heatbyshot factor
+		"durabilityBurnMultiplier": 0.7,			//Multiplicative adjustment of durability burn.
+		"accuracyMultiplier": 0.9,					//Multiplicative adjustment of accuracy (lower is more accurate)
+		"velocityMultiplier": 1.1,					//Multiplicative adjustment of velocity (Will probably only work properly on weapons with integrated barrel)
+		"doubleActionAccuracyPenaltyMultiplier":0.9,//Mutliplicative adjustment of the peanality applied to weapons using double-action fire mode. (lower is more accurate)
+		"addToSpecialSlots: true,					//Allow weapons from group to be placed in special slots. Insuring weapons in special slot MIGHT dupe them through insurance on death.
+		"setFireMode": [ "single", "fullauto" ],	//Set fire modes. Can cause crazy things like full auto M700. :D
+		"weaponBoxWeight":2							//Set the weighting of the weapon in the airdrop crate. higher makes it more common. Relative to the weight of all other weapons. Defaults to 1.
+        "priceMulti":5                              //Set the price multiplier for weapons of this group. Defaults to 5
+        "description":"Modded weapon by an expert gunsmith. Better in almost every way." // Description for weapons in this weapon group.
+	*/
+
+/*The following HAVE to exist in each group block. But all but background can be left empty if desired.
+		"background": "violet", 	//The background of the item in inventory
+		"prefix": "˙·٠•●♥ ",		//Will be applied BEFORE long name of the weapon
+		"suffix": " ♥●•٠·˙",		//WIll be applied AFTER long name of the weapon
+		"shortNamePrefix": "♥ ",	//Will be applied BEFORE short name of the weapon 
+		"shortNameSuffix": " ♥"		//WIll be applied AFTER short name of the weapon
+	*/
+
+/* Colors available for the background 
+		"blue"
+		"yellow"
+		"green"
+		"red"
+		"black"
+		"grey"
+		"violet"
+		"orange"
+		"tracerYellow"
+		"tracerGreen"
+		"tracerRed"
+	*/
