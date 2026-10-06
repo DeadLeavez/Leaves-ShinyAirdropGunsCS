@@ -97,11 +97,11 @@ public class ShinyAirdropGuns(
         // ids.jsonc is runtime-owned and no longer shipped by the build (see the .csproj), so a
         // fresh install won't have it yet - IdStore starts empty in that case.
         var ids = new Leaves.IdStore(modPath, "config/ids.jsonc");
-
+#pragma warning disable CS0618 
         var itemConfig = configServer.GetConfig<ItemConfig>();
         var inventoryConfig = configServer.GetConfig<InventoryConfig>();
         var airdropConfig = configServer.GetConfig<AirdropConfig>();
-
+#pragma warning restore CS0618
         itemDB = databaseService.GetItems();
 
         Leaves.Utils.Instance.printColor("[ShinyAirdropGuns] ShinyAirdropGuns Starting. Stay away from SPT, they bite!");
