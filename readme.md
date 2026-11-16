@@ -98,5 +98,5 @@ Added many new features, all which are explain in detail in the config.
 - Add price multiplier for weapon groups. Defaults to 5 if missing. ``"priceMulti":5``
 - Add description for weapon groups. Defaults to ``"Modded weapon by an expert gunsmith. Better in almost every way."``
 
-## 3.0.
+## 3.0.0
 - Updated to 4.0.x (does not work on 4.1)
