@@ -5,6 +5,10 @@ By default they have higher fire-rate, better ergo, more durability, less recoil
 
 The list of weapons are the ones I personally felt fit, but you can add more if you'd like.
 
+## Requirements
+- [Leaves-LeavesUtil](https://github.com/DeadLeavez/Leaves-LeavesUtil) ([download latest release](https://github.com/DeadLeavez/Leaves-LeavesUtil/releases/latest)) - required.
+- Questrandomizer - optional.
+
 # Changelog
 ## 1.0.0
 Initial Release
